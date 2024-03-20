@@ -12,7 +12,13 @@
     <button type="button" onclick="darkMode()" id="dark">Dark mode</button>
     <div class="main">
         <form action="">
-            <input type="text" id="screen" readonly maxlength="9">
+            <input type="text" id="screen" readonly maxlength="9" value="0">
+            <div class="mainDiv">
+                <button type="button" onclick="press(this)" style="background-color: #387ADF;">AC</button>
+                <button type="button" onclick="press(this)" style="background-color: #387ADF;">C</button>
+                <button type="button" onclick="press(this)" style="background-color: #f88000;">%</button>
+                <button type="button" onclick="press(this)" style="background-color: #f88000;">^</button>
+            </div>
             <div class="mainDiv">
                 <button type="button" onclick="press(this)">1</button>
                 <button type="button" onclick="press(this)">2</button>
