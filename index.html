@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator📱</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button type="button" onclick="darkMode()" id="dark">Dark mode</button>
+    <div class="main">
+        <form action="">
+            <input type="text" id="screen" readonly maxlength="9">
+            <div class="mainDiv">
+                <button type="button" onclick="press(this)">1</button>
+                <button type="button" onclick="press(this)">2</button>
+                <button type="button" onclick="press(this)">3</button>
+                <button type="button" onclick="press(this)" style="background-color: #f88000;">+</button>
+            </div>
+            <div class="mainDiv">
+                <button type="button" onclick="press(this)">4</button>
+                <button type="button" onclick="press(this)">5</button>
+                <button type="button" onclick="press(this)">6</button>
+                <button type="button" onclick="press(this)" style="background-color: #f88000;">-</button>
+            </div>
+            <div class="mainDiv">
+                <button type="button" onclick="press(this)">7</button>
+                <button type="button" onclick="press(this)">8</button>
+                <button type="button" onclick="press(this)">9</button>
+                <button type="button" onclick="press(this)" style="background-color: #f88000;">*</button>
+            </div>
+            <div class="mainDiv">
+                <button type="button" onclick="press(this)" style="background-color: #f88000;">/</button>
+                <button type="button" onclick="press(this)">0</button>
+                <button type="button" onclick="press(this)">.</button>
+                <button type="button" onclick="press(this)" style="background-color: #387ADF;">=</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
