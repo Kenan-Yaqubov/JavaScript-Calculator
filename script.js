@@ -1,3 +1,4 @@
+const proVersions = document.querySelectorAll('.proVersion');
 let input = document.getElementById('screen');
 let darkModeBtn = document.getElementById('dark')
 let numArr = [];
@@ -8,7 +9,7 @@ function press(btn) {
     if (input.value == 0) {
         input.value = "";
     }
-    if (btn.innerText === '+' || btn.innerText === '-' || btn.innerText === '*' || btn.innerText === '/' || btn.innerText === '%' || btn.innerText === '^' || btn.innerText === '1/x' || btn.innerText === 'n!' || btn.innerText === '√') {
+    if (btn.innerText === '+' || btn.innerText === '-' || btn.innerText === '*' || btn.innerText === '/' || btn.innerText === '%' || btn.innerText === '^' || btn.innerText === '1/x' || btn.innerText === 'n!' || btn.innerText === '√' || btn.innerText === 'cos' || btn.innerText === 'tan' || btn.innerText === 'log' || btn.innerText === 'exp' || btn.innerText === 'sin') {
         input.value = "";
         sign = btn.innerText;
         if (sign === '1/x') {
@@ -17,6 +18,16 @@ function press(btn) {
             input.value = `${numArr[0]}!`
         } else if (sign === '√') {
             input.value = `√${numArr[0]}`
+        } else if (sign === 'sin') {
+            input.value = `${sign}(${numArr[0]})`
+        } else if (sign === 'cos') {
+            input.value = `${sign}(${numArr[0]})`
+        } else if (sign === 'tan') {
+            input.value = `${sign}(${numArr[0]})`
+        } else if (sign === 'log') {
+            input.value = `${sign}(${numArr[0]})`
+        } else if (sign === 'exp') {
+            input.value = `${sign}(${numArr[0]})`
         } else {
             input.value += btn.innerText
         }
@@ -34,7 +45,7 @@ function press(btn) {
         }
         numArr[1] = input.value;
     } else if (btn.innerText === '=') {
-        if (numArr[1] === undefined && sign != '1/x' && sign != 'n!' && sign != '√') {
+        if (numArr[1] === undefined && sign != '1/x' && sign != 'n!' && sign != '√' && sign != 'exp' && sign != 'log' && sign != 'tan' && sign != 'sin' && sign != 'cos') {
             input.value = input.value;
         } else {
             input.value = "";
@@ -64,8 +75,22 @@ function press(btn) {
                 for (let i = 1; i <= num1; i++) {
                     answer *= i;
                 }
-            } else if (sign === '√'){
+            } else if (sign === '√') {
                 answer = Math.sqrt(num1)
+            } else if (sign === 'cos') {
+                let radians = num1 * (Math.PI / 180);
+                answer = Math.cos(radians);
+            }
+            else if (sign === 'sin') {
+                let radians = num1 * (Math.PI / 180);
+                answer = Math.sin(radians)
+            } else if (sign === 'tan') {
+                let radians = num1 * (Math.PI / 180);
+                answer = Math.tan(radians)
+            } else if (sign === 'log') {
+                answer = Math.log10(num1)
+            } else if (sign === 'exp') {
+                answer = Math.exp(num1)
             }
             input.value = answer;
             answer = 1;
@@ -134,3 +159,31 @@ function darkMode() {
     }
 
 }
+
+document.getElementById('more').addEventListener('click', function more() {
+    if (proVersions[0].style.display === 'none') {
+        proVersions.forEach(element => {
+            element.style.display = 'block';
+            element.style.backgroundColor = 'chartreuse';
+        });
+        input.style.width = '490px';
+    } else {
+        proVersions.forEach(element => {
+            element.style.display = 'none';
+        });
+        input.style.width = '325px';
+    }
+})
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 560) {
+        proVersions.forEach(element => {
+            element.style.display = 'none';
+        });
+        input.style.width = '325px';
+        document.getElementById('more').disabled = true;
+    }else{
+        document.getElementById('more').disabled = false;
+
+    }
+});
