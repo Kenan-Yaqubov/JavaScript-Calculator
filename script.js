@@ -137,7 +137,6 @@ function press(btn) {
 console.log(numArr);
 
 function darkMode() {
-
     if (darkModeBtn.innerText == 'Dark mode') {
         darkModeBtn.innerText = 'Light mode';
         darkModeBtn.classList.add('darkBtn')
@@ -166,7 +165,7 @@ document.getElementById('more').addEventListener('click', function more() {
             element.style.display = 'block';
             element.style.backgroundColor = 'chartreuse';
         });
-        input.style.width = '490px';
+        input.style.width = '410px';
     } else {
         proVersions.forEach(element => {
             element.style.display = 'none';
