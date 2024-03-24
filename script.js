@@ -2,6 +2,8 @@ const proVersions = document.querySelectorAll('.proVersion');
 let input = document.getElementById('screen');
 let darkModeBtn = document.getElementById('dark')
 let numArr = [];
+let num1;
+let num2;
 let sign;
 let answer = 1;
 
@@ -48,9 +50,10 @@ function press(btn) {
         if (numArr[1] === undefined && sign != '1/x' && sign != 'n!' && sign != '√' && sign != 'exp' && sign != 'log' && sign != 'tan' && sign != 'sin' && sign != 'cos') {
             input.value = input.value;
         } else {
+            console.log(numArr)
             input.value = "";
-            const num1 = Number(numArr[0]);
-            const num2 = Number(numArr[1]);
+            num1 = Number(numArr[0]);
+            num2 = Number(numArr[1]);
             console.log(num1 + num2);
             console.log(sign);
             if (sign === '+') {
@@ -93,9 +96,9 @@ function press(btn) {
                 answer = Math.exp(num1)
             }
             input.value = answer;
-            answer = 1;
             numArr = [];
             numArr.push(answer.toString());
+            answer = 1;
         }
     } else if (btn.innerText === 'AC') {
         sign = undefined;
@@ -135,7 +138,6 @@ function press(btn) {
 }
 
 console.log(numArr);
-
 function darkMode() {
     if (darkModeBtn.innerText == 'Dark mode') {
         darkModeBtn.innerText = 'Light mode';
@@ -181,7 +183,7 @@ window.addEventListener('resize', () => {
         });
         input.style.width = '325px';
         document.getElementById('more').disabled = true;
-    }else{
+    } else {
         document.getElementById('more').disabled = false;
 
     }
